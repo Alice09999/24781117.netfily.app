@@ -1,0 +1,273 @@
+/* Classic European Kingdom Theme - Enhanced Responsive */
+:root {
+  --royal-gold: #D4AF37;
+  --deep-red: #8B0000;
+  --dark-wood: #5D4037;
+  --parchment: #F5F5DC;
+  --velvet: #6A0DAD;
+  --ivory: #FFFFF0;
+  --old-paper: #E8D8B0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Times New Roman', serif;
+  background-color: var(--parchment);
+  color: #333;
+  margin: 0;
+  padding: 0;
+  background-image: url('https://www.transparenttextures.com/patterns/old-paper.png');
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: var(--deep-red);
+  color: var(--royal-gold);
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 5px solid var(--royal-gold);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header h1 {
+  margin: 0;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 1px;
+  padding: 0.5rem 0;
+}
+
+header h1::before, 
+header h1::after {
+  content: "📖";
+  margin: 0 0.5rem;
+  font-size: clamp(1rem, 3vw, 1.5rem);
+}
+
+main {
+  padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  flex: 1;
+}
+
+section {
+  background-color: var(--old-paper);
+  border: 2px solid var(--dark-wood);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: linear-gradient(90deg, var(--royal-gold), var(--deep-red), var(--royal-gold));
+  border-radius: 6px 6px 0 0;
+}
+
+h2 {
+  color: var(--deep-red);
+  border-bottom: 2px solid var(--royal-gold);
+  padding-bottom: 0.5rem;
+  margin-top: 0;
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+}
+
+h2::before {
+  content: "📜";
+  margin-right: 0.5rem;
+}
+
+form {
+  display: grid;
+  gap: 0.8rem;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+  color: var(--deep-red);
+  font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+input[type="text"],
+input[type="number"] {
+  padding: 0.5rem;
+  border: 1px solid var(--dark-wood);
+  border-radius: 4px;
+  background-color: var(--ivory);
+  font-family: 'Times New Roman', serif;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--deep-red);
+}
+
+button {
+  background-color: var(--deep-red);
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: 'Times New Roman', serif;
+  font-size: clamp(0.9rem, 2vw, 1rem);
+  transition: all 0.3s;
+  border: 1px solid var(--royal-gold);
+  margin: 0.2rem 0;
+}
+
+button:hover {
+  background-color: var(--velvet);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#incompleteBookList,
+#completeBookList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.2rem;
+  margin-top: 1.2rem;
+}
+
+[data-testid="bookItem"] {
+  background-color: var(--ivory);
+  border: 1px solid var(--dark-wood);
+  border-radius: 6px;
+  padding: 1.2rem;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+}
+
+[data-testid="bookItem"]:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+[data-testid="bookItem"]::before {
+  content: "🖋️";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  font-size: 1.2rem;
+  background-color: var(--royal-gold);
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--deep-red);
+}
+
+[data-testid="bookItemTitle"] {
+  color: var(--deep-red);
+  margin-top: 0;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  border-bottom: 1px dashed var(--royal-gold);
+  padding-bottom: 0.4rem;
+}
+
+[data-testid="bookItemAuthor"],
+[data-testid="bookItemYear"] {
+  margin: 0.4rem 0;
+  color: var(--dark-wood);
+  font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+[data-testid="bookItem"] > div {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+[data-testid="bookItem"] > div button {
+  padding: 0.5rem 0.8rem;
+  font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+  flex-grow: 1;
+  min-width: 120px;
+}
+
+[data-testid="bookItemIsCompleteButton"] {
+  background-color: var(--royal-gold);
+  color: #000;
+}
+
+[data-testid="bookItemDeleteButton"] {
+  background-color: #8B0000;
+}
+
+[data-testid="bookItemEditButton"] {
+  background-color: var(--dark-wood);
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+  main {
+    padding: 0.8rem;
+  }
+  
+  section {
+    padding: 0.8rem;
+  }
+  
+  #incompleteBookList,
+  #completeBookList {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  [data-testid="bookItem"] > div button {
+    min-width: calc(50% - 0.5rem);
+  }
+}
+
+@media (max-width: 480px) {
+  header h1::before, 
+  header h1::after {
+    margin: 0 0.3rem;
+  }
+  
+  form {
+    gap: 0.6rem;
+  }
+  
+  button {
+    padding: 0.5rem 0.8rem;
+  }
+  
+  [data-testid="bookItem"] > div button {
+    min-width: 100%;
+  }
+  
+  [data-testid="bookItem"] {
+    padding: 1rem;
+  }
+}
