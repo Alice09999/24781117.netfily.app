@@ -1,4 +1,4 @@
-/* Classic European Kingdom Theme - Enhanced Responsive */
+/* Classic European Kingdom Theme - Enhanced */
 :root {
   --royal-gold: #D4AF37;
   --deep-red: #8B0000;
@@ -226,6 +226,30 @@ button:hover {
 
 [data-testid="bookItemEditButton"] {
   background-color: var(--dark-wood);
+  position: relative;
+}
+
+[data-testid="bookItemEditButton"]::after {
+  content: " ✏️";
+}
+
+/* Edit Mode Styles */
+.edit-mode {
+  border: 2px solid var(--royal-gold);
+  animation: pulse 2s infinite;
+  background-color: rgba(212, 175, 55, 0.05);
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 5px rgba(212, 175, 55, 0.3); }
+  50% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.6); }
+  100% { box-shadow: 0 0 5px rgba(212, 175, 55, 0.3); }
+}
+
+.edit-mode-button {
+  background-color: var(--royal-gold) !important;
+  color: #000 !important;
+  font-weight: bold;
 }
 
 /* Responsive Breakpoints */
@@ -270,4 +294,15 @@ button:hover {
   [data-testid="bookItem"] {
     padding: 1rem;
   }
+}
+
+/* Pastikan buku hanya muncul di satu rak */
+#incompleteBookList [data-testid="bookItem"], 
+#completeBookList [data-testid="bookItem"] {
+    display: none;
+}
+
+#incompleteBookList [data-testid="bookItem"]:not([data-complete="true"]),
+#completeBookList [data-testid="bookItem"][data-complete="true"] {
+    display: block;
 }
